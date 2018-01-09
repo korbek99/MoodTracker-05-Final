@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3734"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MoodTracker_Watch_App" customModuleProvider="target">
+                    <items>
+                        <imageView alignment="center" image="rage0" id="a7j-SQ-A9v"/>
+                        <separator alignment="left" id="OM9-u8-5Uh"/>
+                        <label alignment="center" text="Current Mood:" id="QNj-CX-VV0"/>
+                        <slider width="1" alignment="left" maximum="4" steps="4" id="HhC-p8-E6d">
+                            <connections>
+                                <action selector="moodSliderChanged:" destination="AgC-eL-Hgc" id="c3A-7U-PBd"/>
+                            </connections>
+                        </slider>
+                        <group width="1" alignment="left" hasDetent="YES" id="bXR-mj-HaH">
+                            <items>
+                                <label alignment="left" text="Good" id="2md-j8-3pA"/>
+                                <label alignment="right" text="Rage" id="Twh-P3-BR2"/>
+                            </items>
+                        </group>
+                        <switch width="1" alignment="left" value="YES" title="Offer Advice" id="qlw-I5-qNH">
+                            <connections>
+                                <action selector="switchValueChanged:" destination="AgC-eL-Hgc" id="YZT-Z5-qJF"/>
+                            </connections>
+                        </switch>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Record Mood" id="Hcp-WV-oVa">
+                            <connections>
+                                <segue destination="X0k-HK-pSn" kind="push" identifier="RecordMoodSegue" id="b1V-R9-ZXh"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Help" id="xvG-WQ-fEs">
+                            <connections>
+                                <action selector="helpButtonTapped" destination="AgC-eL-Hgc" id="HQS-2A-f0U"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="moodImage" destination="a7j-SQ-A9v" id="7em-IW-RwL"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="246" y="260.25"/>
+        </scene>
+        <!--MoodDetailsController-->
+        <scene sceneID="4y8-Z1-f5v">
+            <objects>
+                <controller identifier="MoodDetailsController" id="X0k-HK-pSn" customClass="MoodDetailsController" customModule="MoodTracker_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" hasDetent="YES" id="Xkv-LL-WTy">
+                            <items>
+                                <imageView width="0.5" widthAdjustment="-4" alignment="left" verticalAlignment="center" image="rage1" contentMode="scaleAspectFit" id="AvE-oS-v1J"/>
+                                <separator alignment="center" id="NjO-nj-w2o"/>
+                                <label width="0.5" widthAdjustment="-4" alignment="center" verticalAlignment="center" text="Label" id="3ts-sb-xzs"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" hasDetent="YES" id="QJa-XW-dMn">
+                            <items>
+                                <label width="1" alignment="left" text="The quick brown fox jumps over the lazy dog." numberOfLines="0" id="TOb-I2-EdJ"/>
+                                <separator alignment="left" id="ylR-Z3-e8z"/>
+                                <label width="1" alignment="left" text="Advice goes here!" numberOfLines="0" id="8T4-AE-Id4"/>
+                            </items>
+                            <edgeInsets key="margins" left="4" right="4" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="moodAdviceLabel" destination="8T4-AE-Id4" id="9pj-vF-G6s"/>
+                        <outlet property="moodDescriptionLabel" destination="TOb-I2-EdJ" id="CLj-Rz-YCq"/>
+                        <outlet property="moodImage" destination="AvE-oS-v1J" id="aLI-Jr-7Vf"/>
+                        <outlet property="moodNameLabel" destination="3ts-sb-xzs" id="hqz-fA-4Wt"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="470" y="260.75"/>
+        </scene>
+        <!--HelpController-->
+        <scene sceneID="kgR-VY-1N7">
+            <objects>
+                <controller identifier="HelpController" id="hzo-a2-l4y">
+                    <items>
+                        <label alignment="center" text="Help" id="lif-qo-ZmB">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label width="1" alignment="center" numberOfLines="0" id="MkH-nU-M6H">
+                            <string key="text">Keep track of your mood from the comfort of the most personal device there is! Just select your mood and let the app do the rest!</string>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="671" y="244"/>
+        </scene>
+    </scenes>
+</document>
